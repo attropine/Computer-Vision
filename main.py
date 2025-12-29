@@ -27,6 +27,7 @@ YOLO_CLASSES_UK = {
     'book': 'книга'
 }
 
+# Завдання 2
 # Завантаження моделі
 model = YOLO("yolov5s.pt")  # або yolov8s.pt для останньої версії
 model.conf = 0.4  # поріг впевненості
@@ -44,6 +45,7 @@ while True:
     results = model(frame)[0]
     detections = results.pandas().xyxy
 
+    # Завдання 3
     object_counts = {}
 
     for _, row in detections.iterrows():
@@ -93,3 +95,4 @@ while True:
 log_file.close()
 cap.release()
 cv2.destroyAllWindows()
+
